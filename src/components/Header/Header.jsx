@@ -3,6 +3,7 @@ import './Header.css'
 import { FiMenu } from 'react-icons/fi';
 import { CgClose } from 'react-icons/cg';
 import {useState} from 'react'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [activeState, setActiveState] = useState('false')
@@ -17,10 +18,9 @@ const Header = () => {
           </div>
           <div className= "header__list">
             <ul className= {`${activeState ? '' : 'active'}`}>
-              <li>About </li>
-              <li>How it works </li>
-              <li>chat</li>
-              <li>about</li>                          
+              <li><Link to="/counter">Counter</Link> </li>
+              <li><Link to="/todo">Todo List</Link> </li>
+                                      
             </ul>
           </div>
           <div className= "header__menu" onClick={StateMenu} >

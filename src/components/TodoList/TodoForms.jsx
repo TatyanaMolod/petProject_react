@@ -5,6 +5,8 @@ import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
 import TodoItems from './TodoItems';
 
 
+
+
 const TodoForms = ({todos, setTodos}) => {
     const [text, setText] = useState('')
 
@@ -12,20 +14,25 @@ const TodoForms = ({todos, setTodos}) => {
       if(text!= ''){
         setTodos([...todos, {
           id: nanoid(),
-          text:text
+          text:text,
+          isCompleted:false
         }]);
       }
       setText('')
     }
 
+
+
   return (
-    <div>
-    <div className='form'>
-        <input className='form_input' value={text} onChange={ (e) => setText(e.target.value)}/>
-        <button className='form_button' onClick={addTodo}>Add</button>
-    </div>
-     <TodoItems todos={todos} setTodos={setTodos}/>
-    </div>
+     
+      <div className='form'>
+          <input className='form_input' value={text} onChange={ (e) => setText(e.target.value)}/>
+          <button className='form_button' onClick={addTodo}>Add</button>
+
+      </div>
+     
+      
+    
   )
 
 }

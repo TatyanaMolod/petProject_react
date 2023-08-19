@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { FiEdit2 } from 'react-icons/fi';
 import './TodoList.css'
+import Check from './Check';
+
 
 const TodoItems = ({todos, setTodos}) => {
 
@@ -32,7 +34,7 @@ const TodoItems = ({todos, setTodos}) => {
  
   return (
     <div className='items'>
-      <div className='items_wrapper'>
+      <div>
           <ul className='items_list'>
               {todos.map(todo => (
               <li key={todo.id}>
@@ -42,10 +44,21 @@ const TodoItems = ({todos, setTodos}) => {
                     <input className='items_change' value={value} onChange={(e) => setValue(e.target.value)}/>
                     <button className='items_save' onClick={() =>saveTodo(todo.id)}>Save</button>
                   </div> :
-                  <div>
-                    {todo.text}
-                    <button className='items_edit' onClick={() => editTodo(todo.id, todo.text)}><FiEdit2/></button>
-                    <button className='items_delete' onClick={() => deleteTodo(todo.id)}><AiTwotoneDelete/></button>
+                  <div> {
+                      todo.isCompleted == true ?
+                        <div>
+                          <span style={{textDecoration: 'line-through', color: 'gray'}} >{todo.text}</span>
+                          <button className='items_delete' onClick={() => deleteTodo(todo.id)}><AiTwotoneDelete/></button>
+                          < Check todos={todos} setTodos={setTodos} />
+                        </div> :
+                    
+                    <div>
+                      {todo.text}
+                      <button className='items_edit' onClick={() => editTodo(todo.id, todo.text)}><FiEdit2/></button>
+                      <button className='items_delete' onClick={() => deleteTodo(todo.id)}><AiTwotoneDelete/></button>
+                      < Check todos={todos} setTodos={setTodos} />
+                    </div>
+                  }
                   </div>
                 }
                 
