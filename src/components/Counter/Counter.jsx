@@ -17,7 +17,7 @@ const Counter = () => {
 
 
   return (
-    <counter className='counter'>
+    <div className='counter'>
         <div className="counter__container">
             <h1>Счетчик</h1>
             <div className='counter__item'>{count}</div>
@@ -26,7 +26,7 @@ const Counter = () => {
                 <button className='counter__plus' onClick={onClickPlus}><AiOutlinePlus/></button>
             </div>
         </div>
-    </counter>
+    </div>
   )
 }
 
