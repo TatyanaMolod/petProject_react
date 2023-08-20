@@ -47,7 +47,7 @@ position: relative;
     max-width: 400px;
     min-height: 30px;
     margin: 10px auto;
-    background-color: aquamarine;
+    background-color: #D4E2D4;
     position: relative;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .20);
@@ -61,7 +61,7 @@ position: relative;
     width: 20px;
     height: 20px;
     top:8px ;
-    background-color: aquamarine;
+    background-color: #D4E2D4;
 
 }
 
@@ -71,14 +71,14 @@ position: relative;
     width: 20px;
     height: 20px;
     top:8px ;
-    background-color: aquamarine;
+    background-color: #D4E2D4;
    
 }
 
 .items_change {
     position: relative;
     width: 320px;
-    background-color: aquamarine;
+    background-color: #D4E2D4;
     
 
 }
@@ -104,7 +104,7 @@ position: relative;
     left: 10px;
     border-radius: 2px;
     border: 1px solid gray;
-    background-color: aquamarine;
+    background-color: #D4E2D4;
     opacity: 0.5;
     
 }
@@ -115,7 +115,7 @@ position: relative;
     width: 20px;
     height: 20px;
     top:8px ;
-    background-color: aquamarine;
+    background-color: #D4E2D4;
 
 }
 

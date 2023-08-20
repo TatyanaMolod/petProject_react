@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { FiEdit2 } from 'react-icons/fi';
 import './TodoList.css'
-import Check from './Check';
+import { BsCheckLg } from 'react-icons/bs';
 
 
 const TodoItems = ({todos, setTodos}) => {
@@ -31,6 +31,15 @@ const TodoItems = ({todos, setTodos}) => {
     setTodos(newTodo)
     setEdit(null)
   }
+
+  const toggleTodo =(id) => {
+            const copy = [...todos]
+            const c = copy.find(t => t.id === id)
+            c.isCompleted = !c.isCompleted
+            setTodos(copy)
+            console.log(id)
+  }
+  
  
   return (
     <div className='items'>
@@ -45,33 +54,27 @@ const TodoItems = ({todos, setTodos}) => {
                     <button className='items_save' onClick={() =>saveTodo(todo.id)}>Save</button>
                   </div> :
                   <div> {
-                      todo.isCompleted == true ?
+                    todo.isCompleted == true ?
                         <div>
                           <span style={{textDecoration: 'line-through', color: 'gray'}} >{todo.text}</span>
                           <button className='items_delete' onClick={() => deleteTodo(todo.id)}><AiTwotoneDelete/></button>
-                          < Check todos={todos} setTodos={setTodos} />
+                          <div  className='check_box' onClick={() => toggleTodo(todo.id)}>
+                              <BsCheckLg  className='check_icon' />
+                          </div> 
                         </div> :
-                    
-                    <div>
-                      {todo.text}
-                      <button className='items_edit' onClick={() => editTodo(todo.id, todo.text)}><FiEdit2/></button>
-                      <button className='items_delete' onClick={() => deleteTodo(todo.id)}><AiTwotoneDelete/></button>
-                      < Check todos={todos} setTodos={setTodos} />
+                        <div>
+                          {todo.text}
+                          <button className='items_edit' onClick={() => editTodo(todo.id, todo.text)}><FiEdit2/></button>
+                          <button className='items_delete' onClick={() => deleteTodo(todo.id)}><AiTwotoneDelete/></button>
+                          <div  className='check_box' onClick={() => toggleTodo(todo.id)}></div>
+                        </div>
+                        }
                     </div>
-                  }
-                  </div>
                 }
-                
-                
               </li>
-              
           ))}
-          </ul>
-          
+          </ul>         
       </div>
-      
-       
-      
     </div>
   )
 }
