@@ -29,7 +29,7 @@ function App() {
         <Routes>
             <Route path='/counter' element={<Counter />}/>
             
-            <Route path='/todo'
+            <Route path='/'
                element={<><TodoForms todos={todos} setTodos={setTodos} /> <TodoItems todos={todos} setTodos={setTodos}/>
               
                </>} />
