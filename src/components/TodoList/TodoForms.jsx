@@ -2,8 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import './TodoList.css'
 import { nanoid } from 'https://cdn.jsdelivr.net/npm/nanoid/nanoid.js'
-import TodoItems from './TodoItems';
-
 
 
 
