@@ -5,6 +5,7 @@ import Counter from './components/Counter/Counter';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TodoForms from './components/TodoList/TodoForms';
 import TodoItems from './components/TodoList/TodoItems';
+import { useEffect } from 'react';
 
 
 
@@ -12,8 +13,12 @@ import TodoItems from './components/TodoList/TodoItems';
 
 function App() {
 
-  const [todos, setTodos] = useState([])
-  
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || [])
+
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
  return(
   <BrowserRouter>
       <div className="wrapper">
@@ -25,7 +30,7 @@ function App() {
             <Route path='/counter' element={<Counter />}/>
             
             <Route path='/todo'
-               element={<><TodoForms todos={todos} setTodos={setTodos}/> <TodoItems todos={todos} setTodos={setTodos}/>
+               element={<><TodoForms todos={todos} setTodos={setTodos} /> <TodoItems todos={todos} setTodos={setTodos}/>
               
                </>} />
               
