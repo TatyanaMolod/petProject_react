@@ -19,7 +19,7 @@ const Header = () => {
           <div className= "header__list">
             <ul className= {`${activeState ? '' : 'active'}`}>
               <li><Link to="/counter">Counter</Link> </li>
-              <li><Link to="/todo">Todo List</Link> </li>
+              <li><Link to="/">Todo List</Link> </li>
                                       
             </ul>
           </div>
